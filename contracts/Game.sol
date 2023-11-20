@@ -283,23 +283,23 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
         _mintBatch(to, ids, amounts, data);
     }
 
-    function calculateTeamPower(address user) public view returns (uint256) {
-        Team storage userTeam = teams[user];
+    function calculateTeamPower(
+        uint256[5] calldata cardIds
+    ) internal pure returns (uint256) {
         uint256 basePower = 0;
-        uint256 multiplier = 1;
+        uint256 multiplier = 10;
         mapping(uint256 => uint256) attributeCounts;
         uint256 legendaryCount = 0;
         uint256 epicCount = 0;
 
         for (uint i = 0; i < 5; i++) {
-            uint256 cardId = userTeam.cardIds[i];
-            if (balanceOf(user, cardId) > 0) {
-                Card storage card = cards[cardId];
+            uint256 cardId = cardIds[i];
+            if (balanceOf(msg.sender, cardId) > 0) {
+                Card memory card = cards[cardIds[i]];
                 basePower += card.power;
                 attributeCounts[card.attributes]++;
 
-                // Comptage des cartes légendaires et épiques
-                if (cardId >= 40 && cardId <= 49) {
+                if (cardIds >= 40 && cardIds <= 49) {
                     legendaryCount++;
                 } else if (cardId >= 30 && cardId <= 39) {
                     epicCount++;
@@ -307,7 +307,6 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
             }
         }
 
-        // Calcul du multiplicateur basé sur les attributs
         uint256 distinctAttributes = 0;
         for (uint256 attribute = 1; attribute <= 5; attribute++) {
             if (attributeCounts[attribute] > 0) {
