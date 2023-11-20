@@ -15,6 +15,7 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
     struct Card {
         uint256 id;
         uint256 power;
+        uint256 attributes; //1= elemental, 2= arcanic, 3= warrior, 4= spiritual, 5= mythic
     }
 
     struct Team {
@@ -70,56 +71,56 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
     }
 
     function _initializeCards() internal onlyOwner {
-        cards[0] = Card(0, 10);
-        cards[1] = Card(1, 12);
-        cards[2] = Card(2, 14);
-        cards[3] = Card(3, 16);
-        cards[4] = Card(4, 18);
-        cards[5] = Card(5, 20);
-        cards[6] = Card(6, 19);
-        cards[7] = Card(7, 17);
-        cards[8] = Card(8, 15);
-        cards[9] = Card(9, 13);
-        cards[10] = Card(10, 25);
-        cards[11] = Card(11, 27);
-        cards[12] = Card(12, 30);
-        cards[13] = Card(13, 33);
-        cards[14] = Card(14, 35);
-        cards[15] = Card(15, 34);
-        cards[16] = Card(16, 32);
-        cards[17] = Card(17, 30);
-        cards[18] = Card(18, 28);
-        cards[19] = Card(19, 26);
-        cards[20] = Card(20, 40);
-        cards[21] = Card(21, 43);
-        cards[22] = Card(22, 46);
-        cards[23] = Card(23, 49);
-        cards[24] = Card(24, 50);
-        cards[25] = Card(25, 48);
-        cards[26] = Card(26, 46);
-        cards[27] = Card(27, 44);
-        cards[28] = Card(28, 42);
-        cards[29] = Card(29, 40);
-        cards[30] = Card(30, 60);
-        cards[31] = Card(31, 63);
-        cards[32] = Card(32, 66);
-        cards[33] = Card(33, 69);
-        cards[34] = Card(34, 70);
-        cards[35] = Card(35, 68);
-        cards[36] = Card(36, 66);
-        cards[37] = Card(37, 64);
-        cards[38] = Card(38, 62);
-        cards[39] = Card(39, 60);
-        cards[40] = Card(40, 85);
-        cards[41] = Card(41, 87);
-        cards[42] = Card(42, 90);
-        cards[43] = Card(43, 93);
-        cards[44] = Card(44, 100);
-        cards[45] = Card(45, 97);
-        cards[46] = Card(46, 95);
-        cards[47] = Card(47, 92);
-        cards[48] = Card(48, 89);
-        cards[49] = Card(49, 86);
+        cards[0] = Card(0, 10, 4);
+        cards[1] = Card(1, 11, 3);
+        cards[2] = Card(2, 11, 2);
+        cards[3] = Card(3, 13, 4);
+        cards[4] = Card(4, 15, 1);
+        cards[5] = Card(5, 16, 1);
+        cards[6] = Card(6, 16, 5);
+        cards[7] = Card(7, 18, 5);
+        cards[8] = Card(8, 20, 2);
+        cards[9] = Card(9, 20, 3);
+        cards[10] = Card(10, 25, 4);
+        cards[11] = Card(11, 25, 2);
+        cards[12] = Card(12, 27, 1);
+        cards[13] = Card(13, 27, 1);
+        cards[14] = Card(14, 28, 3);
+        cards[15] = Card(15, 29, 5);
+        cards[16] = Card(16, 30, 4);
+        cards[17] = Card(17, 32, 2);
+        cards[18] = Card(18, 34, 5);
+        cards[19] = Card(19, 35, 3);
+        cards[20] = Card(20, 40, 1);
+        cards[21] = Card(21, 42, 3);
+        cards[22] = Card(22, 42, 4);
+        cards[23] = Card(23, 43, 2);
+        cards[24] = Card(24, 43, 4);
+        cards[25] = Card(25, 45, 1);
+        cards[26] = Card(26, 47, 2);
+        cards[27] = Card(27, 47, 5);
+        cards[28] = Card(28, 48, 3);
+        cards[29] = Card(29, 50, 5);
+        cards[30] = Card(30, 60, 4);
+        cards[31] = Card(31, 62, 3);
+        cards[32] = Card(32, 62, 4);
+        cards[33] = Card(33, 63, 3);
+        cards[34] = Card(34, 64, 1);
+        cards[35] = Card(35, 66, 1);
+        cards[36] = Card(36, 66, 5);
+        cards[37] = Card(37, 68, 2);
+        cards[38] = Card(38, 69, 5);
+        cards[39] = Card(39, 70, 2);
+        cards[40] = Card(40, 85, 5);
+        cards[41] = Card(41, 86, 2);
+        cards[42] = Card(42, 87, 5);
+        cards[43] = Card(43, 89, 1);
+        cards[44] = Card(44, 90, 4);
+        cards[45] = Card(45, 92, 1);
+        cards[46] = Card(46, 93, 2);
+        cards[47] = Card(47, 95, 3);
+        cards[48] = Card(48, 97, 4);
+        cards[49] = Card(49, 100, 3);
     }
 
     // Fonction pour demander un nombre aléatoire à Chainlink VRF
