@@ -308,30 +308,32 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
         }
 
         uint256 distinctAttributes = 0;
+        uint256 nMaxAttributes = 0;
         for (uint256 attribute = 1; attribute <= 5; attribute++) {
+            if (attributesCounts[attribute] >= nMaxAttributes) {
+                nMaxAttributes = attributesCounts[attribute];
+            }
             if (attributeCounts[attribute] > 0) {
                 distinctAttributes++;
             }
         }
 
-        if (distinctAttributes == 5) {
-            multiplier = 2;
-        } else if (distinctAttributes == 4) {
-            multiplier = 15; // Multiplié par 10 pour éviter les fractions
-        } else if (distinctAttributes == 3) {
-            multiplier = 13; // Multiplié par 10
-        } else if (distinctAttributes == 2) {
-            multiplier = 12; // Multiplié par 10
-        } else if (distinctAttributes == 1) {
-            multiplier = 11; // Multiplié par 10
+        if (nMaxAttributes == 5) {
+            multiplier = 25;
+        } else if (nMaxAttributes == 4) {
+            multiplier = 20;
+        } else if (distinctAttributes == 5) {
+            multiplier = 15;
+        } else if (nMaxAttributes == 3) {
+            multiplier = 13;
+        } else if (nMaxAttributes == 2) {
+            multiplier = 12;
         }
 
-        // Ajout du bonus de rareté
-        multiplier += legendaryCount * 5; // Multiplié par 10
+        multiplier += legendaryCount * 5;
         multiplier += epicCount;
 
-        // Calcul de la puissance totale
-        return (basePower * multiplier) / 10; // Diviser par 10 pour ajuster le multiplicateur
+        return (basePower * multiplier) / 10;
     }
 
     function teamPower(address user) external view returns (uint256) {
