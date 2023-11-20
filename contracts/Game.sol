@@ -4,13 +4,17 @@ pragma solidity ^0.8.19;
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 /*import "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";*/
 
 contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
-    uint256 public packPrice = 0.001 ether;
+    uint256 public packPriceMatic = 1 ether;
+    uint256 public packPriceToken = 1000;
     uint256 public constant explorationCooldown = 4 hours;
+
+    IERC20 internal _token;
 
     struct Card {
         uint256 id;
@@ -325,7 +329,9 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
         return userTeam.totalPower;
     }
 
-    function showTeam(address user) external view returns (uint256[5] memory) {
+    function getTeamCards(
+        address user
+    ) external view returns (uint256[5] memory) {
         Team memory userTeam = teams[user];
         return userTeam.cardIds;
     }
@@ -335,9 +341,9 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
         uint256 cooldownEnd = lastPackTime + 1 days;
 
         if (block.timestamp >= cooldownEnd) {
-            return 0; // No cooldown left
+            return 0;
         } else {
-            return cooldownEnd - block.timestamp; // Return the remaining cooldown in seconds
+            return cooldownEnd - block.timestamp;
         }
     }
 
