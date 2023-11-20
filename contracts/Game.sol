@@ -148,21 +148,58 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
     }*/
 
     function createTeam(uint256[5] calldata cardIds) external {
-        uint256 totalPower = 0;
+        uint256 basePower = 0;
+        uint256 multiplier = 10;
+        mapping(uint256 => uint256) attributeCounts;
+        uint256 legendaryCount = 0;
+        uint256 epicCount = 0;
 
         for (uint i = 0; i < 5; i++) {
-            require(
-                balanceOf(msg.sender, cardIds[i]) > 0,
-                "User does not own this card"
-            );
+            uint256 cardId = cardIds[i];
+            if (balanceOf(msg.sender, cardId) > 0) {
+                Card memory card = cards[cardIds[i]];
+                basePower += card.power;
+                attributeCounts[card.attributes]++;
 
-            Card memory card = cards[cardIds[i]];
-            totalPower += card.power;
+                if (cardIds >= 40 && cardIds <= 49) {
+                    legendaryCount++;
+                } else if (cardId >= 30 && cardId <= 39) {
+                    epicCount++;
+                }
+            }
         }
 
-        teams[msg.sender] = Team({totalPower: totalPower, cardIds: cardIds});
+        uint256 distinctAttributes = 0;
+        uint256 nMaxAttributes = 0;
+        for (uint256 attribute = 1; attribute <= 5; attribute++) {
+            if (attributesCounts[attribute] >= nMaxAttributes) {
+                nMaxAttributes = attributesCounts[attribute];
+            }
+            if (attributeCounts[attribute] > 0) {
+                distinctAttributes++;
+            }
+        }
 
-        emit TeamCreated(msg.sender, totalPower, cardIds);
+        if (nMaxAttributes == 5) {
+            multiplier = 25;
+        } else if (nMaxAttributes == 4) {
+            multiplier = 20;
+        } else if (distinctAttributes == 5) {
+            multiplier = 15;
+        } else if (nMaxAttributes == 3) {
+            multiplier = 13;
+        } else if (nMaxAttributes == 2) {
+            multiplier = 12;
+        }
+
+        multiplier += legendaryCount * 5;
+        multiplier += epicCount;
+
+        basePower = (basePower * multiplier) / 10;
+
+        teams[msg.sender] = Team({totalPower: basePower, cardIds: cardIds});
+
+        emit TeamCreated(msg.sender, basePower, cardIds);
     }
 
     function openFreePack() external {
@@ -283,72 +320,9 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
         _mintBatch(to, ids, amounts, data);
     }
 
-    function calculateTeamPower(
-        uint256[5] calldata cardIds
-    ) internal pure returns (uint256) {
-        uint256 basePower = 0;
-        uint256 multiplier = 10;
-        mapping(uint256 => uint256) attributeCounts;
-        uint256 legendaryCount = 0;
-        uint256 epicCount = 0;
-
-        for (uint i = 0; i < 5; i++) {
-            uint256 cardId = cardIds[i];
-            if (balanceOf(msg.sender, cardId) > 0) {
-                Card memory card = cards[cardIds[i]];
-                basePower += card.power;
-                attributeCounts[card.attributes]++;
-
-                if (cardIds >= 40 && cardIds <= 49) {
-                    legendaryCount++;
-                } else if (cardId >= 30 && cardId <= 39) {
-                    epicCount++;
-                }
-            }
-        }
-
-        uint256 distinctAttributes = 0;
-        uint256 nMaxAttributes = 0;
-        for (uint256 attribute = 1; attribute <= 5; attribute++) {
-            if (attributesCounts[attribute] >= nMaxAttributes) {
-                nMaxAttributes = attributesCounts[attribute];
-            }
-            if (attributeCounts[attribute] > 0) {
-                distinctAttributes++;
-            }
-        }
-
-        if (nMaxAttributes == 5) {
-            multiplier = 25;
-        } else if (nMaxAttributes == 4) {
-            multiplier = 20;
-        } else if (distinctAttributes == 5) {
-            multiplier = 15;
-        } else if (nMaxAttributes == 3) {
-            multiplier = 13;
-        } else if (nMaxAttributes == 2) {
-            multiplier = 12;
-        }
-
-        multiplier += legendaryCount * 5;
-        multiplier += epicCount;
-
-        return (basePower * multiplier) / 10;
-    }
-
-    function teamPower(address user) external view returns (uint256) {
+    function getTeamPower(address user) external view returns (uint256) {
         Team memory userTeam = teams[user];
-        uint256 totalPower = 0;
-
-        for (uint i = 0; i < 5; i++) {
-            uint256 cardId = userTeam.cardIds[i];
-
-            if (balanceOf(user, cardId) > 0) {
-                totalPower += cards[cardId].power;
-            }
-        }
-
-        return totalPower;
+        return userTeam.totalPower;
     }
 
     function showTeam(address user) external view returns (uint256[5] memory) {
