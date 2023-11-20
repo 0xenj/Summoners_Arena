@@ -12,10 +12,10 @@
     ]
   },
   "files": {
-    "contracts/Lock.sol": {
-      "lastModificationDate": 1700424456029,
-      "contentHash": "aa4071269da5518e2ff62c64bdc1bdff",
-      "sourceName": "contracts/Lock.sol",
+    "contracts/Cards.sol": {
+      "lastModificationDate": 1700501098158,
+      "contentHash": "3e064494b4cfee577b80ed5717fc1443",
+      "sourceName": "contracts/Cards.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -46,13 +46,14 @@
         }
       },
       "imports": [
-        "node_modules/@openzeppelin\\contracts/access/Ownable.sol",
+        "node_modules/@openzeppelin/contracts\\access/Ownable.sol",
         "node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol",
-        "node_modules/@openzeppelin\\contracts/token/ERC1155/ERC1155.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC1155/ERC1155.sol",
         "node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155.sol",
         "node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
-        "node_modules/@openzeppelin\\contracts/token/ERC1155/extensions/ERC1155Burnable.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC1155/extensions/ERC1155Burnable.sol",
         "node_modules/@openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC20/IERC20.sol",
         "node_modules/@openzeppelin/contracts/utils/Arrays.sol",
         "node_modules/@openzeppelin/contracts/utils/Context.sol",
         "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol",
@@ -63,7 +64,54 @@
       "versionRequirement": "^0.8.19",
       "artifacts": {
         "Cards": {
-          "0.8.23+commit.f704f362.Windows.msvc": "Lock.sol\\Cards.json"
+          "0.8.23+commit.f704f362.Windows.msvc": "Cards.sol\\Cards.json"
+        }
+      }
+    },
+    "contracts/MockERC20.sol": {
+      "lastModificationDate": 1700497679963,
+      "contentHash": "f5f97bac77262ffbcb36d46a21d3e902",
+      "sourceName": "contracts/MockERC20.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC20/ERC20.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "node_modules/@openzeppelin/contracts/utils/Context.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "MockERC20": {
+          "0.8.23+commit.f704f362.Windows.msvc": "MockERC20.sol\\MockERC20.json"
         }
       }
     },
@@ -392,6 +440,136 @@
         }
       }
     },
+    "node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1700423377620,
+      "contentHash": "c6375ef25e84c90b3d15f9ec4eef218f",
+      "sourceName": "node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "node_modules/@openzeppelin/contracts/utils/Context.sol"
+      ],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "ERC20": {
+          "0.8.23+commit.f704f362.Windows.msvc": "ERC20.sol\\ERC20.json"
+        }
+      }
+    },
+    "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1700423377736,
+      "contentHash": "5517c8678c18eb1a8ba58810e7ca39ca",
+      "sourceName": "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "IERC20": {
+          "0.8.23+commit.f704f362.Windows.msvc": "IERC20.sol\\IERC20.json"
+        }
+      }
+    },
+    "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1700423377741,
+      "contentHash": "4c02fa6f7ae7b6c289cef80424f0c875",
+      "sourceName": "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/@openzeppelin/contracts\\token/ERC20/IERC20.sol"
+      ],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "IERC20Metadata": {
+          "0.8.23+commit.f704f362.Windows.msvc": "IERC20Metadata.sol\\IERC20Metadata.json"
+        }
+      }
+    },
     "node_modules/@openzeppelin/contracts/utils/Arrays.sol": {
       "lastModificationDate": 1700423377569,
       "contentHash": "fabe6fe8d403b4f72dec1dc585ab1c7a",
@@ -640,6 +818,1057 @@
       "artifacts": {
         "Math": {
           "0.8.23+commit.f704f362.Windows.msvc": "Math.sol\\Math.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/interfaces/IMulticall3.sol": {
+      "lastModificationDate": 1700497444304,
+      "contentHash": "41d9b6b9c1e987c9ab0f0d9b91ab8555",
+      "sourceName": "node_modules/foundry-test-utility/contracts/interfaces/IMulticall3.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "IMulticall3": {
+          "0.8.23+commit.f704f362.Windows.msvc": "IMulticall3.sol\\IMulticall3.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/base.sol": {
+      "lastModificationDate": 1700497444271,
+      "contentHash": "d11b64b4b7e69b072ec02876850188ea",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/base.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/foundry-test-utility/contracts/utils/stdStorage.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/vm.sol"
+      ],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "CommonBase": {
+          "0.8.23+commit.f704f362.Windows.msvc": "base.sol\\CommonBase.json"
+        },
+        "ScriptBase": {
+          "0.8.23+commit.f704f362.Windows.msvc": "base.sol\\ScriptBase.json"
+        },
+        "TestBase": {
+          "0.8.23+commit.f704f362.Windows.msvc": "base.sol\\TestBase.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/cheatcodes.sol": {
+      "lastModificationDate": 1700497444273,
+      "contentHash": "3f314051c6696a8958dd1e4987855902",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/cheatcodes.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.8.0, <0.9.0",
+      "artifacts": {
+        "CheatCodes": {
+          "0.8.23+commit.f704f362.Windows.msvc": "cheatcodes.sol\\CheatCodes.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/console.sol": {
+      "lastModificationDate": 1700497444277,
+      "contentHash": "49802faebf13340af9dc23856433c21b",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/console.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.4.22, <0.9.0",
+      "artifacts": {
+        "console": {
+          "0.8.23+commit.f704f362.Windows.msvc": "console.sol\\console.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/console2.sol": {
+      "lastModificationDate": 1700497444281,
+      "contentHash": "228317751b46618b82304b014f88377a",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/console2.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.4.22, <0.9.0",
+      "artifacts": {
+        "console2": {
+          "0.8.23+commit.f704f362.Windows.msvc": "console2.sol\\console2.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/ds-test.sol": {
+      "lastModificationDate": 1700497444286,
+      "contentHash": "a291053d29df049047c8392cc8b4b60a",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/ds-test.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.5.0",
+      "artifacts": {
+        "DSTest": {
+          "0.8.23+commit.f704f362.Windows.msvc": "ds-test.sol\\DSTest.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/stdAssertions.sol": {
+      "lastModificationDate": 1700497444329,
+      "contentHash": "15c2b5edf545538aa03452b2c7122f6e",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/stdAssertions.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/foundry-test-utility/contracts/utils/ds-test.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdMath.sol"
+      ],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "StdAssertions": {
+          "0.8.23+commit.f704f362.Windows.msvc": "stdAssertions.sol\\StdAssertions.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/stdChains.sol": {
+      "lastModificationDate": 1700497444334,
+      "contentHash": "4626b64af898bc92a6c2f72fa269edc8",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/stdChains.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/foundry-test-utility/contracts\\utils/vm.sol"
+      ],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "StdChains": {
+          "0.8.23+commit.f704f362.Windows.msvc": "stdChains.sol\\StdChains.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/stdCheats.sol": {
+      "lastModificationDate": 1700497444338,
+      "contentHash": "b739509834777d8b0164bc168f239472",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/stdCheats.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/foundry-test-utility/contracts/utils/stdStorage.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/vm.sol"
+      ],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "StdCheats": {
+          "0.8.23+commit.f704f362.Windows.msvc": "stdCheats.sol\\StdCheats.json"
+        },
+        "StdCheatsSafe": {
+          "0.8.23+commit.f704f362.Windows.msvc": "stdCheats.sol\\StdCheatsSafe.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/stdError.sol": {
+      "lastModificationDate": 1700497444339,
+      "contentHash": "5c830ad6469a54a1c7f10de3321316a4",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/stdError.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "stdError": {
+          "0.8.23+commit.f704f362.Windows.msvc": "stdError.sol\\stdError.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/stdInvariant.sol": {
+      "lastModificationDate": 1700497444340,
+      "contentHash": "f2289059d9b1d1d691a9a3587394e0bb",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/stdInvariant.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "StdInvariant": {
+          "0.8.23+commit.f704f362.Windows.msvc": "stdInvariant.sol\\StdInvariant.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/stdJson.sol": {
+      "lastModificationDate": 1700497444341,
+      "contentHash": "d8d9af2de111a19eba4b67026701566b",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/stdJson.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/foundry-test-utility/contracts\\utils/vm.sol"
+      ],
+      "versionRequirement": ">=0.6.0, <0.9.0",
+      "artifacts": {
+        "stdJson": {
+          "0.8.23+commit.f704f362.Windows.msvc": "stdJson.sol\\stdJson.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/stdMath.sol": {
+      "lastModificationDate": 1700497444344,
+      "contentHash": "8964e586b3f6cc03465b8e09eb40ecc1",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/stdMath.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "stdMath": {
+          "0.8.23+commit.f704f362.Windows.msvc": "stdMath.sol\\stdMath.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/stdStorage.sol": {
+      "lastModificationDate": 1700497444345,
+      "contentHash": "130e50fd7e4a593072acc01797c8f2ea",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/stdStorage.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/foundry-test-utility/contracts\\utils/vm.sol"
+      ],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "stdStorage": {
+          "0.8.23+commit.f704f362.Windows.msvc": "stdStorage.sol\\stdStorage.json"
+        },
+        "stdStorageSafe": {
+          "0.8.23+commit.f704f362.Windows.msvc": "stdStorage.sol\\stdStorageSafe.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/stdStyle.sol": {
+      "lastModificationDate": 1700497444346,
+      "contentHash": "457cf615e6cb927c395cdeb21021131e",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/stdStyle.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/foundry-test-utility/contracts\\utils/vm.sol"
+      ],
+      "versionRequirement": ">=0.4.22, <0.9.0",
+      "artifacts": {
+        "StdStyle": {
+          "0.8.23+commit.f704f362.Windows.msvc": "stdStyle.sol\\StdStyle.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/stdUtils.sol": {
+      "lastModificationDate": 1700497444348,
+      "contentHash": "b1393948e5c484837eca45d3939230d6",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/stdUtils.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/foundry-test-utility/contracts/interfaces/IMulticall3.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/vm.sol"
+      ],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "StdUtils": {
+          "0.8.23+commit.f704f362.Windows.msvc": "stdUtils.sol\\StdUtils.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/test.sol": {
+      "lastModificationDate": 1700497444349,
+      "contentHash": "57f92ff83324dc6a3c45f81f1c2ec063",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/test.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/foundry-test-utility/contracts/interfaces/IMulticall3.sol",
+        "node_modules/foundry-test-utility/contracts/utils/base.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/console.sol",
+        "node_modules/foundry-test-utility/contracts/utils/console2.sol",
+        "node_modules/foundry-test-utility/contracts/utils/ds-test.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdAssertions.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdChains.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdCheats.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdError.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdInvariant.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdJson.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdMath.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdStorage.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdStyle.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdUtils.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/vm.sol"
+      ],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "Test": {
+          "0.8.23+commit.f704f362.Windows.msvc": "test.sol\\Test.json"
+        }
+      }
+    },
+    "node_modules/foundry-test-utility/contracts/utils/vm.sol": {
+      "lastModificationDate": 1700497444355,
+      "contentHash": "106c13e0c33c50f6881a289ed7ffec87",
+      "sourceName": "node_modules/foundry-test-utility/contracts/utils/vm.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "Vm": {
+          "0.8.23+commit.f704f362.Windows.msvc": "vm.sol\\Vm.json"
+        },
+        "VmSafe": {
+          "0.8.23+commit.f704f362.Windows.msvc": "vm.sol\\VmSafe.json"
+        }
+      }
+    },
+    "test/Test.sol": {
+      "lastModificationDate": 1700504071609,
+      "contentHash": "0991ac0d540f12ce9439913e384d7182",
+      "sourceName": "test/Test.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "contracts\\Cards.sol",
+        "contracts\\MockERC20.sol",
+        "node_modules/@openzeppelin/contracts\\access/Ownable.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC1155/ERC1155.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC1155/extensions/ERC1155Burnable.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC20/ERC20.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "node_modules/@openzeppelin/contracts/utils/Arrays.sol",
+        "node_modules/@openzeppelin/contracts/utils/Context.sol",
+        "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol",
+        "node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol",
+        "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/foundry-test-utility/contracts/interfaces/IMulticall3.sol",
+        "node_modules/foundry-test-utility/contracts/utils/base.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/cheatcodes.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/console.sol",
+        "node_modules/foundry-test-utility/contracts/utils/console2.sol",
+        "node_modules/foundry-test-utility/contracts/utils/ds-test.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdAssertions.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdChains.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/stdCheats.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdError.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdInvariant.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdJson.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdMath.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdStorage.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdStyle.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdUtils.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/test.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/vm.sol",
+        "test\\shared\\constants.t.sol",
+        "test\\shared\\errors.t.sol",
+        "test\\shared\\functions.t.sol"
+      ],
+      "versionRequirement": "^0.8.9",
+      "artifacts": {
+        "cardGame_test": {
+          "0.8.23+commit.f704f362.Windows.msvc": "Test.sol\\cardGame_test.json"
+        }
+      }
+    },
+    "test/shared/constants.t.sol": {
+      "lastModificationDate": 1700502326925,
+      "contentHash": "8f5ef3f11a256eca9504049cdd04a0e3",
+      "sourceName": "test/shared/constants.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "Constants": {
+          "0.8.23+commit.f704f362.Windows.msvc": "constants.t.sol\\Constants.json"
+        }
+      }
+    },
+    "test/shared/errors.t.sol": {
+      "lastModificationDate": 1700498092761,
+      "contentHash": "4c2e1be5b555c2cf168e45ab37313db4",
+      "sourceName": "test/shared/errors.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/foundry-test-utility/contracts/interfaces/IMulticall3.sol",
+        "node_modules/foundry-test-utility/contracts/utils/base.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/console.sol",
+        "node_modules/foundry-test-utility/contracts/utils/console2.sol",
+        "node_modules/foundry-test-utility/contracts/utils/ds-test.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdAssertions.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdChains.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdCheats.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdError.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdInvariant.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdJson.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdMath.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdStorage.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdStyle.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdUtils.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/test.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/vm.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "Errors": {
+          "0.8.23+commit.f704f362.Windows.msvc": "errors.t.sol\\Errors.json"
+        }
+      }
+    },
+    "test/shared/functions.t.sol": {
+      "lastModificationDate": 1700504075408,
+      "contentHash": "16f7b90ed2829bf02ada73e9db8eb673",
+      "sourceName": "test/shared/functions.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "contracts\\Cards.sol",
+        "contracts\\MockERC20.sol",
+        "node_modules/@openzeppelin/contracts\\access/Ownable.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC1155/ERC1155.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC1155/extensions/ERC1155Burnable.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC20/ERC20.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "node_modules/@openzeppelin/contracts/utils/Arrays.sol",
+        "node_modules/@openzeppelin/contracts/utils/Context.sol",
+        "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol",
+        "node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol",
+        "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/foundry-test-utility/contracts/interfaces/IMulticall3.sol",
+        "node_modules/foundry-test-utility/contracts/utils/base.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/cheatcodes.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/console.sol",
+        "node_modules/foundry-test-utility/contracts/utils/console2.sol",
+        "node_modules/foundry-test-utility/contracts/utils/ds-test.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdAssertions.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdChains.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/stdCheats.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdError.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdInvariant.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdJson.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdMath.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdStorage.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdStyle.sol",
+        "node_modules/foundry-test-utility/contracts/utils/stdUtils.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/test.sol",
+        "node_modules/foundry-test-utility/contracts\\utils/vm.sol",
+        "test\\shared\\constants.t.sol",
+        "test\\shared\\errors.t.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "Functions": {
+          "0.8.23+commit.f704f362.Windows.msvc": "functions.t.sol\\Functions.json"
         }
       }
     }
