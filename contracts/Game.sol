@@ -216,11 +216,23 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
         lastOpenedFreePack[msg.sender] = block.timestamp;
     }
 
-    function openBuyPack() external payable {
+    function openBuyPackMatic() external payable {
         require(msg.value >= packPrice, "Insufficient ETH sent");
 
         if (msg.value > packPrice) {
             payable(msg.sender).transfer(msg.value - packPrice);
+        }
+
+        _openPack(msg.sender);
+    }
+
+    function openBuyPackToken(uint256 _amount) external {
+        require(_amount >= packPriceToken, "Insufficient SUMM sent");
+
+        _token.transferFrom(msg.sender, address(this), _amount);
+
+        if (_amount > packPriceToken) {
+            _token.transfer(msg.sender, _amount - packPriceToken);
         }
 
         _openPack(msg.sender);
@@ -358,5 +370,9 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
         } else {
             return cooldownEnd - block.timestamp;
         }
+    }
+
+    function token() public view returns (address tokenAddress) {
+        return address(_token);
     }
 }
