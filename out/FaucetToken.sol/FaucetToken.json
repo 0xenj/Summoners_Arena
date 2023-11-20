@@ -1,0 +1,63 @@
+{
+  "abi": [],
+  "bytecode": {
+    "object": "0x",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "linkReferences": {}
+  },
+  "ast": {
+    "absolutePath": "contracts/FaucetToken.sol",
+    "id": 3,
+    "exportedSymbols": {
+      "Context": [
+        780
+      ],
+      "ERC20": [
+        654
+      ],
+      "IERC20": [
+        732
+      ],
+      "IERC20Errors": [
+        44
+      ],
+      "IERC20Metadata": [
+        758
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "33:85:0",
+    "nodes": [
+      {
+        "id": 1,
+        "nodeType": "PragmaDirective",
+        "src": "33:24:0",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".19"
+        ]
+      },
+      {
+        "id": 2,
+        "nodeType": "ImportDirective",
+        "src": "61:55:0",
+        "nodes": [],
+        "absolutePath": "node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "file": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 3,
+        "sourceUnit": 655,
+        "symbolAliases": [],
+        "unitAlias": ""
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 0
+}

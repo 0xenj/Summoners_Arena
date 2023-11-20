@@ -68,6 +68,53 @@
         }
       }
     },
+    "contracts/FaucetToken.sol": {
+      "lastModificationDate": 1700508233809,
+      "contentHash": "fc431ceb74720fdf455fd4a95b8908e0",
+      "sourceName": "contracts/FaucetToken.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC20/ERC20.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "node_modules/@openzeppelin/contracts/utils/Context.sol"
+      ],
+      "versionRequirement": "^0.8.19",
+      "artifacts": {
+        "FaucetToken": {
+          "0.8.23+commit.f704f362.Windows.msvc": "FaucetToken.sol\\FaucetToken.json"
+        }
+      }
+    },
     "contracts/MockERC20.sol": {
       "lastModificationDate": 1700497679963,
       "contentHash": "f5f97bac77262ffbcb36d46a21d3e902",
