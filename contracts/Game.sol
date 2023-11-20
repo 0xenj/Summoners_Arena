@@ -156,7 +156,7 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
                 "User does not own this card"
             );
 
-            Card storage card = cards[cardIds[i]];
+            Card memory card = cards[cardIds[i]];
             totalPower += card.power;
         }
 
@@ -283,8 +283,60 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
         _mintBatch(to, ids, amounts, data);
     }
 
-    function teamPower(address user) external view returns (uint256) {
+    function calculateTeamPower(address user) public view returns (uint256) {
         Team storage userTeam = teams[user];
+        uint256 basePower = 0;
+        uint256 multiplier = 1;
+        mapping(uint256 => uint256) attributeCounts;
+        uint256 legendaryCount = 0;
+        uint256 epicCount = 0;
+
+        for (uint i = 0; i < 5; i++) {
+            uint256 cardId = userTeam.cardIds[i];
+            if (balanceOf(user, cardId) > 0) {
+                Card storage card = cards[cardId];
+                basePower += card.power;
+                attributeCounts[card.attributes]++;
+
+                // Comptage des cartes légendaires et épiques
+                if (cardId >= 40 && cardId <= 49) {
+                    legendaryCount++;
+                } else if (cardId >= 30 && cardId <= 39) {
+                    epicCount++;
+                }
+            }
+        }
+
+        // Calcul du multiplicateur basé sur les attributs
+        uint256 distinctAttributes = 0;
+        for (uint256 attribute = 1; attribute <= 5; attribute++) {
+            if (attributeCounts[attribute] > 0) {
+                distinctAttributes++;
+            }
+        }
+
+        if (distinctAttributes == 5) {
+            multiplier = 2;
+        } else if (distinctAttributes == 4) {
+            multiplier = 15; // Multiplié par 10 pour éviter les fractions
+        } else if (distinctAttributes == 3) {
+            multiplier = 13; // Multiplié par 10
+        } else if (distinctAttributes == 2) {
+            multiplier = 12; // Multiplié par 10
+        } else if (distinctAttributes == 1) {
+            multiplier = 11; // Multiplié par 10
+        }
+
+        // Ajout du bonus de rareté
+        multiplier += legendaryCount * 5; // Multiplié par 10
+        multiplier += epicCount;
+
+        // Calcul de la puissance totale
+        return (basePower * multiplier) / 10; // Diviser par 10 pour ajuster le multiplicateur
+    }
+
+    function teamPower(address user) external view returns (uint256) {
+        Team memory userTeam = teams[user];
         uint256 totalPower = 0;
 
         for (uint i = 0; i < 5; i++) {
@@ -299,7 +351,7 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
     }
 
     function showTeam(address user) external view returns (uint256[5] memory) {
-        Team storage userTeam = teams[user];
+        Team memory userTeam = teams[user];
         return userTeam.cardIds;
     }
 
