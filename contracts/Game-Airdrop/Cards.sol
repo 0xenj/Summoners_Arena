@@ -21,6 +21,7 @@ contract Cards is
     uint256 public constant explorationCooldown = 4 hours;
     string public constant NAME = "Summoners Arena";
     string public constant VERSION = "0.0.1";
+    address[] private playerAddresses;
 
     IERC20 public _token;
 
@@ -217,6 +218,10 @@ contract Cards is
 
         basePower = (basePower * multiplier) / 10;
 
+        if (teams[msg.sender].totalPower == 0) {
+            playerAddresses.push(msg.sender);
+        }
+
         teams[msg.sender] = Team({totalPower: basePower, cardIds: cardIds});
 
         emit TeamCreated(msg.sender, basePower, cardIds);
@@ -401,6 +406,10 @@ contract Cards is
         } else {
             return cooldownEnd - block.timestamp;
         }
+    }
+
+    function getAllPlayerAddresses() external view returns (address[] memory) {
+        return playerAddresses;
     }
 
     function token() public view returns (address tokenAddress) {
