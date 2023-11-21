@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/proxy/utils/Initializable.sol";
 
-contract MyToken is IERC20, Ownable, Initializable {
+abstract contract MyToken is IERC20, Ownable, Initializable {
     address contractOwner;
     string private _name;
     string private _symbol;

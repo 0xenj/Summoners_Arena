@@ -10,13 +10,13 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";*/
 
 contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
-    uint256 public packPriceMatic = 1 ether;
+    uint256 public packPriceMatic = 5 ether;
     uint256 public packPriceToken = 1000;
     uint256 public constant explorationCooldown = 4 hours;
     string public constant NAME = "Summoners Arena";
     string public constant VERSION = "0.0.1";
 
-    IERC20 internal _token;
+    IERC20 public _token;
 
     struct Card {
         uint256 id;
@@ -384,5 +384,12 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
 
     function token() public view returns (address tokenAddress) {
         return address(_token);
+    }
+
+    function _changeToken(
+        IERC20 contractAddress
+    ) internal returns (bool success) {
+        _token = contractAddress;
+        return true;
     }
 }

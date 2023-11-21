@@ -1,0 +1,632 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "initialOwner",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_tokenAddr",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tokenAddr",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x608060405234801561001057600080fd5b5060405161032738038061032783398101604081905261002f916100f6565b816001600160a01b03811661005e57604051631e4fbdf760e01b81526000600482015260240160405180910390fd5b6100678161008e565b50600180546001600160a01b0319166001600160a01b039290921691909117905550610130565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b6001600160a01b03811681146100f357600080fd5b50565b6000806040838503121561010957600080fd5b8251610114816100de565b6020840151909250610125816100de565b809150509250929050565b6101e88061013f6000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80635fbe4d1d14610051578063715018a6146100805780638da5cb5b1461008a578063f2fde38b1461009b575b600080fd5b600154610064906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b6100886100ae565b005b6000546001600160a01b0316610064565b6100886100a9366004610182565b6100c2565b6100b6610105565b6100c06000610132565b565b6100ca610105565b6001600160a01b0381166100f957604051631e4fbdf760e01b8152600060048201526024015b60405180910390fd5b61010281610132565b50565b6000546001600160a01b031633146100c05760405163118cdaa760e01b81523360048201526024016100f0565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b60006020828403121561019457600080fd5b81356001600160a01b03811681146101ab57600080fd5b939250505056fea26469706673582212203f3eb065d182074dac5c0e02facb816400fa86b72a193c0a16accb08378516be64736f6c63430008170033",
+    "sourceMap": "175:186:2:-:0;;;242:116;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;303:12;-1:-1:-1;;;;;1273:26:5;;1269:95;;1322:31;;-1:-1:-1;;;1322:31:5;;1350:1;1322:31;;;701:51:44;674:18;;1322:31:5;;;;;;;1269:95;1373:32;1392:12;1373:18;:32::i;:::-;-1:-1:-1;328:9:2::1;:22:::0;;-1:-1:-1;;;;;;328:22:2::1;-1:-1:-1::0;;;;;328:22:2;;;::::1;::::0;;;::::1;::::0;;-1:-1:-1;175:186:2;;2912:187:5;2985:16;3004:6;;-1:-1:-1;;;;;3020:17:5;;;-1:-1:-1;;;;;;3020:17:5;;;;;;3052:40;;3004:6;;;;;;;3052:40;;2985:16;3052:40;2975:124;2912:187;:::o;14:131:44:-;-1:-1:-1;;;;;89:31:44;;79:42;;69:70;;135:1;132;125:12;69:70;14:131;:::o;150:400::-;244:6;252;305:2;293:9;284:7;280:23;276:32;273:52;;;321:1;318;311:12;273:52;353:9;347:16;372:31;397:5;372:31;:::i;:::-;472:2;457:18;;451:25;422:5;;-1:-1:-1;485:33:44;451:25;485:33;:::i;:::-;537:7;527:17;;;150:400;;;;;:::o;555:203::-;175:186:2;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80635fbe4d1d14610051578063715018a6146100805780638da5cb5b1461008a578063f2fde38b1461009b575b600080fd5b600154610064906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b6100886100ae565b005b6000546001600160a01b0316610064565b6100886100a9366004610182565b6100c2565b6100b6610105565b6100c06000610132565b565b6100ca610105565b6001600160a01b0381166100f957604051631e4fbdf760e01b8152600060048201526024015b60405180910390fd5b61010281610132565b50565b6000546001600160a01b031633146100c05760405163118cdaa760e01b81523360048201526024016100f0565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b60006020828403121561019457600080fd5b81356001600160a01b03811681146101ab57600080fd5b939250505056fea26469706673582212203f3eb065d182074dac5c0e02facb816400fa86b72a193c0a16accb08378516be64736f6c63430008170033",
+    "sourceMap": "175:186:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;210:23;;;;;-1:-1:-1;;;;;210:23:2;;;;;;-1:-1:-1;;;;;193:32:44;;;175:51;;163:2;148:18;210:23:2;;;;;;;2293:101:5;;;:::i;:::-;;1638:85;1684:7;1710:6;-1:-1:-1;;;;;1710:6:5;1638:85;;2543:215;;;;;;:::i;:::-;;:::i;2293:101::-;1531:13;:11;:13::i;:::-;2357:30:::1;2384:1;2357:18;:30::i;:::-;2293:101::o:0;2543:215::-;1531:13;:11;:13::i;:::-;-1:-1:-1;;;;;2627:22:5;::::1;2623:91;;2672:31;::::0;-1:-1:-1;;;2672:31:5;;2700:1:::1;2672:31;::::0;::::1;175:51:44::0;148:18;;2672:31:5::1;;;;;;;;2623:91;2723:28;2742:8;2723:18;:28::i;:::-;2543:215:::0;:::o;1796:162::-;1684:7;1710:6;-1:-1:-1;;;;;1710:6:5;735:10:17;1855:23:5;1851:101;;1901:40;;-1:-1:-1;;;1901:40:5;;735:10:17;1901:40:5;;;175:51:44;148:18;;1901:40:5;14:218:44;2912:187:5;2985:16;3004:6;;-1:-1:-1;;;;;3020:17:5;;;-1:-1:-1;;;;;;3020:17:5;;;;;;3052:40;;3004:6;;;;;;;3052:40;;2985:16;3052:40;2975:124;2912:187;:::o;445:286:44:-;504:6;557:2;545:9;536:7;532:23;528:32;525:52;;;573:1;570;563:12;525:52;599:23;;-1:-1:-1;;;;;651:31:44;;641:42;;631:70;;697:1;694;687:12;631:70;720:5;445:286;-1:-1:-1;;;445:286:44:o",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "owner()": "8da5cb5b",
+    "renounceOwnership()": "715018a6",
+    "tokenAddr()": "5fbe4d1d",
+    "transferOwnership(address)": "f2fde38b"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.23+commit.f704f362\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"initialOwner\",\"type\":\"address\"},{\"internalType\":\"contract IERC20\",\"name\":\"_tokenAddr\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tokenAddr\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"errors\":{\"OwnableInvalidOwner(address)\":[{\"details\":\"The owner is not a valid owner account. (eg. `address(0)`)\"}],\"OwnableUnauthorizedAccount(address)\":[{\"details\":\"The caller account is not authorized to perform an operation.\"}]},\"kind\":\"dev\",\"methods\":{\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Game-Airdrop/Airdrop.sol\":\"Airdrop\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@chainlink/contracts/node_modules/@eth-optimism/\",\":@openzeppelin/contracts-upgradeable/=node_modules/@openzeppelin/contracts-upgradeable/\",\":@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":foundry-test-utility/contracts/=node_modules/foundry-test-utility/contracts/\",\":hardhat/=node_modules/hardhat/\"]},\"sources\":{\"contracts/Game-Airdrop/Airdrop.sol\":{\"keccak256\":\"0xd0d80ccd881da225e0cc18b28d75461baef9d927739f1406140f2831ede41cc2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://add22a9d0bb934a39cbbe3d7ea5bb4e9ed1aae736a5f3ef234b30d07bed2724e\",\"dweb:/ipfs/QmXhPDB2YdHqRFqr7AnnDs7p8rCNYKzjDKEKZKBAEZ5DFa\"]},\"node_modules/@openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8ed324d3920bb545059d66ab97d43e43ee85fd3bd52e03e401f020afb0b120f6\",\"dweb:/ipfs/QmfEckWLmZkDDcoWrkEvMWhms66xwTLff9DDhegYpvHo1a\"]},\"node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c\",\"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq\"]},\"node_modules/@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x75a4ee64c68dbd5f38bddd06e664a64c8271b4caa554fb6f0607dfd672bb4bf3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0c4e6cb30d3601e2f7af5af09e265508147cb275a8dcd99d6f7363645cc56867\",\"dweb:/ipfs/QmNgFkoXNWoUbAyw71rr1sKQ95Rj2GfvYiWg79xEYDn2NY\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.23+commit.f704f362"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "initialOwner",
+              "type": "address"
+            },
+            {
+              "internalType": "contract IERC20",
+              "name": "_tokenAddr",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            }
+          ],
+          "type": "error",
+          "name": "OwnableInvalidOwner"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "type": "error",
+          "name": "OwnableUnauthorizedAccount"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "OwnershipTransferred",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "owner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "renounceOwnership"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "tokenAddr",
+          "outputs": [
+            {
+              "internalType": "contract IERC20",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferOwnership"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "owner()": {
+            "details": "Returns the address of the current owner."
+          },
+          "renounceOwnership()": {
+            "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+          },
+          "transferOwnership(address)": {
+            "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@chainlink/contracts/node_modules/@eth-optimism/",
+        "@openzeppelin/contracts-upgradeable/=node_modules/@openzeppelin/contracts-upgradeable/",
+        "@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/",
+        "eth-gas-reporter/=node_modules/eth-gas-reporter/",
+        "foundry-test-utility/contracts/=node_modules/foundry-test-utility/contracts/",
+        "hardhat/=node_modules/hardhat/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/Game-Airdrop/Airdrop.sol": "Airdrop"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/Game-Airdrop/Airdrop.sol": {
+        "keccak256": "0xd0d80ccd881da225e0cc18b28d75461baef9d927739f1406140f2831ede41cc2",
+        "urls": [
+          "bzz-raw://add22a9d0bb934a39cbbe3d7ea5bb4e9ed1aae736a5f3ef234b30d07bed2724e",
+          "dweb:/ipfs/QmXhPDB2YdHqRFqr7AnnDs7p8rCNYKzjDKEKZKBAEZ5DFa"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+        "keccak256": "0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb",
+        "urls": [
+          "bzz-raw://8ed324d3920bb545059d66ab97d43e43ee85fd3bd52e03e401f020afb0b120f6",
+          "dweb:/ipfs/QmfEckWLmZkDDcoWrkEvMWhms66xwTLff9DDhegYpvHo1a"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+        "keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+        "urls": [
+          "bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+          "dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/utils/Context.sol": {
+        "keccak256": "0x75a4ee64c68dbd5f38bddd06e664a64c8271b4caa554fb6f0607dfd672bb4bf3",
+        "urls": [
+          "bzz-raw://0c4e6cb30d3601e2f7af5af09e265508147cb275a8dcd99d6f7363645cc56867",
+          "dweb:/ipfs/QmNgFkoXNWoUbAyw71rr1sKQ95Rj2GfvYiWg79xEYDn2NY"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/Game-Airdrop/Airdrop.sol",
+    "id": 494,
+    "exportedSymbols": {
+      "Airdrop": [
+        493
+      ],
+      "Context": [
+        4689
+      ],
+      "IERC20": [
+        4458
+      ],
+      "Ownable": [
+        2162
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "33:330:2",
+    "nodes": [
+      {
+        "id": 469,
+        "nodeType": "PragmaDirective",
+        "src": "33:24:2",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".19"
+        ]
+      },
+      {
+        "id": 470,
+        "nodeType": "ImportDirective",
+        "src": "61:52:2",
+        "nodes": [],
+        "absolutePath": "node_modules/@openzeppelin/contracts/access/Ownable.sol",
+        "file": "@openzeppelin/contracts/access/Ownable.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 494,
+        "sourceUnit": 2163,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 471,
+        "nodeType": "ImportDirective",
+        "src": "115:56:2",
+        "nodes": [],
+        "absolutePath": "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 494,
+        "sourceUnit": 4459,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 493,
+        "nodeType": "ContractDefinition",
+        "src": "175:186:2",
+        "nodes": [
+          {
+            "id": 476,
+            "nodeType": "VariableDeclaration",
+            "src": "210:23:2",
+            "nodes": [],
+            "constant": false,
+            "functionSelector": "5fbe4d1d",
+            "mutability": "mutable",
+            "name": "tokenAddr",
+            "nameLocation": "224:9:2",
+            "scope": 493,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IERC20_$4458",
+              "typeString": "contract IERC20"
+            },
+            "typeName": {
+              "id": 475,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 474,
+                "name": "IERC20",
+                "nameLocations": [
+                  "210:6:2"
+                ],
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 4458,
+                "src": "210:6:2"
+              },
+              "referencedDeclaration": 4458,
+              "src": "210:6:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IERC20_$4458",
+                "typeString": "contract IERC20"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 492,
+            "nodeType": "FunctionDefinition",
+            "src": "242:116:2",
+            "nodes": [],
+            "body": {
+              "id": 491,
+              "nodeType": "Block",
+              "src": "317:41:2",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "id": 489,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 487,
+                      "name": "tokenAddr",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 476,
+                      "src": "328:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$4458",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 488,
+                      "name": "_tokenAddr",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 481,
+                      "src": "340:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$4458",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "src": "328:22:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$4458",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "id": 490,
+                  "nodeType": "ExpressionStatement",
+                  "src": "328:22:2"
+                }
+              ]
+            },
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "id": 484,
+                    "name": "initialOwner",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 478,
+                    "src": "303:12:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 485,
+                "kind": "baseConstructorSpecifier",
+                "modifierName": {
+                  "id": 483,
+                  "name": "Ownable",
+                  "nameLocations": [
+                    "295:7:2"
+                  ],
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 2162,
+                  "src": "295:7:2"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "295:21:2"
+              }
+            ],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "parameters": {
+              "id": 482,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 478,
+                  "mutability": "mutable",
+                  "name": "initialOwner",
+                  "nameLocation": "262:12:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 492,
+                  "src": "254:20:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 477,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "254:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 481,
+                  "mutability": "mutable",
+                  "name": "_tokenAddr",
+                  "nameLocation": "283:10:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 492,
+                  "src": "276:17:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$4458",
+                    "typeString": "contract IERC20"
+                  },
+                  "typeName": {
+                    "id": 480,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 479,
+                      "name": "IERC20",
+                      "nameLocations": [
+                        "276:6:2"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 4458,
+                      "src": "276:6:2"
+                    },
+                    "referencedDeclaration": 4458,
+                    "src": "276:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$4458",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "253:41:2"
+            },
+            "returnParameters": {
+              "id": 486,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "317:0:2"
+            },
+            "scope": 493,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 472,
+              "name": "Ownable",
+              "nameLocations": [
+                "195:7:2"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 2162,
+              "src": "195:7:2"
+            },
+            "id": 473,
+            "nodeType": "InheritanceSpecifier",
+            "src": "195:7:2"
+          }
+        ],
+        "canonicalName": "Airdrop",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          493,
+          2162,
+          4689
+        ],
+        "name": "Airdrop",
+        "nameLocation": "184:7:2",
+        "scope": 494,
+        "usedErrors": [
+          2028,
+          2033
+        ],
+        "usedEvents": [
+          2039
+        ]
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 2
+}

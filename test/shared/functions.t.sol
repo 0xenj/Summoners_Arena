@@ -8,8 +8,8 @@ import {CheatCodes} from "foundry-test-utility/contracts/utils/cheatcodes.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {Constants} from "./constants.t.sol";
 import {Errors} from "./errors.t.sol";
-import {MockERC20} from "../../contracts/MockERC20.sol";
-import {Cards} from "../../contracts/Cards.sol";
+import {MockERC20} from "../../contracts/test_contracts/MockERC20.sol";
+import {Cards} from "../../contracts/Game-Airdrop/Cards.sol";
 
 contract Functions is Constants, Errors {
     Cards public game;
@@ -25,9 +25,12 @@ contract Functions is Constants, Errors {
         vm.warp(100);
         vm.startPrank(ADMIN);
 
-        game = new Cards(ADMIN);
-
         token = new MockERC20();
+
+        vm.roll(block.number + 1);
+        vm.warp(block.timestamp + 100);
+
+        game = new Cards(ADMIN);
 
         vm.stopPrank();
         vm.roll(block.number + 1);

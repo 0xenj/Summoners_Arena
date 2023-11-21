@@ -4,14 +4,14 @@ pragma solidity ^0.8.19;
 import "./MyToken.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Faucet is Ownable, MyToken {
+abstract contract Faucet is Ownable, MyToken {
     IERC20 public _token;
     uint256 private _amount;
     mapping(address => uint256) private _lastDripTime;
 
     uint256 private constant _dripInterval = 60 minutes;
 
-    constructor(IERC20 token, uint256 amount) public {
+    constructor(IERC20 token, uint256 amount) {
         _token = token;
         _amount = amount * (10 ** _decimals);
         Ownable.transferOwnership(msg.sender);

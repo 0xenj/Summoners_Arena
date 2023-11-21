@@ -12,10 +12,148 @@
     ]
   },
   "files": {
-    "contracts/Cards.sol": {
-      "lastModificationDate": 1700501098158,
-      "contentHash": "3e064494b4cfee577b80ed5717fc1443",
-      "sourceName": "contracts/Cards.sol",
+    "contracts/Faucet-Token/Faucet.sol": {
+      "lastModificationDate": 1700572806327,
+      "contentHash": "a5272d8b5298f784a49ff63811cc4d83",
+      "sourceName": "contracts/Faucet-Token/Faucet.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "contracts\\Faucet-Token\\MyToken.sol",
+        "node_modules/@openzeppelin/contracts\\access/Ownable.sol",
+        "node_modules/@openzeppelin/contracts\\proxy/utils/Initializable.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/utils/Context.sol"
+      ],
+      "versionRequirement": "^0.8.19",
+      "artifacts": {
+        "Faucet": {
+          "0.8.23+commit.f704f362.Windows.msvc": "Faucet.sol\\Faucet.json"
+        }
+      }
+    },
+    "contracts/Faucet-Token/MyToken.sol": {
+      "lastModificationDate": 1700572743388,
+      "contentHash": "fa9258703f718e55af0d941e0ee30f4d",
+      "sourceName": "contracts/Faucet-Token/MyToken.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/@openzeppelin/contracts\\access/Ownable.sol",
+        "node_modules/@openzeppelin/contracts\\proxy/utils/Initializable.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/utils/Context.sol"
+      ],
+      "versionRequirement": "^0.8.19",
+      "artifacts": {
+        "MyToken": {
+          "0.8.23+commit.f704f362.Windows.msvc": "MyToken.sol\\MyToken.json"
+        }
+      }
+    },
+    "contracts/Game-Airdrop/Airdrop.sol": {
+      "lastModificationDate": 1700577091386,
+      "contentHash": "b4f591bb75860691d421a264720d7b97",
+      "sourceName": "contracts/Game-Airdrop/Airdrop.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/@openzeppelin/contracts\\access/Ownable.sol",
+        "node_modules/@openzeppelin/contracts\\token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/utils/Context.sol"
+      ],
+      "versionRequirement": "^0.8.19",
+      "artifacts": {
+        "Airdrop": {
+          "0.8.23+commit.f704f362.Windows.msvc": "Airdrop.sol\\Airdrop.json"
+        }
+      }
+    },
+    "contracts/Game-Airdrop/Cards.sol": {
+      "lastModificationDate": 1700576823821,
+      "contentHash": "7ed323a16f00f9403a859639aec13066",
+      "sourceName": "contracts/Game-Airdrop/Cards.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -68,57 +206,10 @@
         }
       }
     },
-    "contracts/FaucetToken.sol": {
-      "lastModificationDate": 1700508233809,
-      "contentHash": "fc431ceb74720fdf455fd4a95b8908e0",
-      "sourceName": "contracts/FaucetToken.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "useLiteralContent": false,
-            "bytecodeHash": "ipfs",
-            "appendCBOR": true
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "paris",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol",
-        "node_modules/@openzeppelin/contracts\\token/ERC20/ERC20.sol",
-        "node_modules/@openzeppelin/contracts\\token/ERC20/IERC20.sol",
-        "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
-        "node_modules/@openzeppelin/contracts/utils/Context.sol"
-      ],
-      "versionRequirement": "^0.8.19",
-      "artifacts": {
-        "FaucetToken": {
-          "0.8.23+commit.f704f362.Windows.msvc": "FaucetToken.sol\\FaucetToken.json"
-        }
-      }
-    },
-    "contracts/MockERC20.sol": {
+    "contracts/test_contracts/MockERC20.sol": {
       "lastModificationDate": 1700497679963,
       "contentHash": "f5f97bac77262ffbcb36d46a21d3e902",
-      "sourceName": "contracts/MockERC20.sol",
+      "sourceName": "contracts/test_contracts/MockERC20.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -249,6 +340,47 @@
         },
         "IERC721Errors": {
           "0.8.23+commit.f704f362.Windows.msvc": "draft-IERC6093.sol\\IERC721Errors.json"
+        }
+      }
+    },
+    "node_modules/@openzeppelin/contracts/proxy/utils/Initializable.sol": {
+      "lastModificationDate": 1700423377774,
+      "contentHash": "f0cedd674b4863ee90d1521a92ab82df",
+      "sourceName": "node_modules/@openzeppelin/contracts/proxy/utils/Initializable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "Initializable": {
+          "0.8.23+commit.f704f362.Windows.msvc": "Initializable.sol\\Initializable.json"
         }
       }
     },
@@ -1692,8 +1824,8 @@
         }
       },
       "imports": [
-        "contracts\\Cards.sol",
-        "contracts\\MockERC20.sol",
+        "contracts\\Game-Airdrop\\Cards.sol",
+        "contracts\\test_contracts\\MockERC20.sol",
         "node_modules/@openzeppelin/contracts\\access/Ownable.sol",
         "node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol",
         "node_modules/@openzeppelin/contracts\\token/ERC1155/ERC1155.sol",
@@ -1840,8 +1972,8 @@
       }
     },
     "test/shared/functions.t.sol": {
-      "lastModificationDate": 1700504075408,
-      "contentHash": "16f7b90ed2829bf02ada73e9db8eb673",
+      "lastModificationDate": 1700576797116,
+      "contentHash": "b40815783d3f5cc626b2fa16233bf56e",
       "sourceName": "test/shared/functions.t.sol",
       "solcConfig": {
         "settings": {
@@ -1873,8 +2005,8 @@
         }
       },
       "imports": [
-        "contracts\\Cards.sol",
-        "contracts\\MockERC20.sol",
+        "contracts\\Game-Airdrop\\Cards.sol",
+        "contracts\\test_contracts\\MockERC20.sol",
         "node_modules/@openzeppelin/contracts\\access/Ownable.sol",
         "node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol",
         "node_modules/@openzeppelin/contracts\\token/ERC1155/ERC1155.sol",
