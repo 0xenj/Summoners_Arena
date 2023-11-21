@@ -1,66 +1,58 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract Airdrop is Ownable {
-    IERC20 public tokenAddr;
+contract Airdrop {
+    event TokenAirdrop(address beneficiary, uint amount);
 
-    event TokenTransfer(address beneficiary, uint amount);
-
-    constructor(address initialOwner, IERC20 _tokenAddr) Ownable(initialOwner) {
-        tokenAddr = _tokenAddr;
+    function getSum(uint256[] calldata _arr) public pure returns (uint sum) {
+        for (uint i = 0; i < _arr.length; i++) sum = sum + _arr[i];
     }
 
-    function dropTokens(
-        address[] memory _recipients,
-        uint256[] memory _amount
-    ) public onlyOwner returns (bool) {
-        for (uint i = 0; i < _recipients.length; i++) {
-            require(_recipients[i] != address(0));
-            require(IERC20(tokenAddr).transfer(_recipients[i], _amount[i]));
-        }
-
-        return true;
-    }
-
-    function dropMatic(
-        address[] memory _recipients,
-        uint256[] memory _amount
-    ) public payable onlyOwner returns (bool) {
-        uint total = 0;
-
-        for (uint j = 0; j < _amount.length; j++) {
-            total = total.add(_amount[j]);
-        }
-
-        require(total <= msg.value);
-        require(_recipients.length == _amount.length);
-
-        for (uint i = 0; i < _recipients.length; i++) {
-            require(_recipients[i] != address(0));
-            payable(_recipients[i]).transfer(_amount[i]);
-            emit EtherTransfer(_recipients[i], _amount[i]);
-        }
-
-        return true;
-    }
-
-    function updateTokenAddress(address newTokenAddr) public onlyOwner {
-        tokenAddr = newTokenAddr;
-    }
-
-    function withdrawTokens(address beneficiary) public onlyOwner {
+    /// @notice Transfer ERC20 tokens to multiple addresses, authorization is required before use
+    ///
+    /// @param _token The address of ERC20 token for transfer
+    /// @param _addresses The array of airdrop addresses
+    /// @param _amounts The array of amount of tokens (airdrop amount for each address)
+    function _airdropToken(
+        address _token,
+        address[] calldata _addresses,
+        uint256[] calldata _amounts
+    ) internal returns (bool) {
         require(
-            Token(tokenAddr).transfer(
-                beneficiary,
-                Token(tokenAddr).balanceOf(address(this))
-            )
+            _addresses.length == _amounts.length,
+            "Lengths of Addresses and Amounts NOT EQUAL"
         );
+        IERC20 token = IERC20(_token);
+        uint _amountSum = getSum(_amounts);
+        require(
+            token.allowance(msg.sender, address(this)) >= _amountSum,
+            "Need Approve ERC20 token"
+        );
+
+        for (uint8 i; i < _addresses.length; i++) {
+            token.transferFrom(msg.sender, _addresses[i], _amounts[i]);
+            emit TokenAirdrop(_addresses[i], _amounts[i]);
+        }
+        return true;
     }
 
-    function withdrawEther(address payable beneficiary) public onlyOwner {
-        beneficiary.transfer(address(this).balance);
+    /// Transfer ETH to multiple addresses
+    function _airdropMATIC(
+        address payable[] calldata _addresses,
+        uint256[] calldata _amounts
+    ) public payable returns (bool) {
+        require(
+            _addresses.length == _amounts.length,
+            "Lengths of Addresses and Amounts NOT EQUAL"
+        );
+        uint _amountSum = getSum(_amounts);
+        require(msg.value == _amountSum, "Transfer amount error");
+        for (uint256 i = 0; i < _addresses.length; i++) {
+            _addresses[i].transfer(_amounts[i]);
+            emit TokenAirdrop(_addresses[i], _amounts[i]);
+        }
+        return true;
     }
 }

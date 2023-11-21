@@ -5,11 +5,17 @@ import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "./Airdrop.sol";
 
 /*import "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";*/
 
-contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
+contract Cards is
+    ERC1155,
+    Ownable,
+    ERC1155Burnable,
+    Airdrop /*VRFConsumerBaseV2*/
+{
     uint256 public packPriceMatic = 5 ether;
     uint256 public packPriceToken = 1000;
     uint256 public constant explorationCooldown = 4 hours;
@@ -322,6 +328,21 @@ contract Cards is ERC1155, Ownable, ERC1155Burnable /*VRFConsumerBaseV2*/ {
             _burn(msg.sender, tokenId, 1);
             emit Exploration(msg.sender, tokenId, false);
         }
+    }
+
+    function airdropToken(
+        address airdropTokenAddress,
+        address[] calldata _addresses,
+        uint256[] calldata _amounts
+    ) external onlyOwner returns (bool) {
+        return _airdropToken(airdropTokenAddress, _addresses, _amounts);
+    }
+
+    function airdropMATIC(
+        address payable[] calldata _addresses,
+        uint256[] calldata _amounts
+    ) external payable onlyOwner returns (bool) {
+        return _airdropMATIC(_addresses, _amounts);
     }
 
     function setURI(string memory newuri) public onlyOwner {
