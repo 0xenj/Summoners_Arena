@@ -149,8 +149,8 @@
       }
     },
     "contracts/Game-Airdrop/Cards.sol": {
-      "lastModificationDate": 1700609657067,
-      "contentHash": "016adfebdf049fb23eaaef4e9fc229c1",
+      "lastModificationDate": 1700647042206,
+      "contentHash": "e4a4c0fc07fc9010ad12c7489732b581",
       "sourceName": "contracts/Game-Airdrop/Cards.sol",
       "solcConfig": {
         "settings": {
@@ -2005,6 +2005,7 @@
         }
       },
       "imports": [
+        "contracts\\Game-Airdrop\\Airdrop.sol",
         "contracts\\Game-Airdrop\\Cards.sol",
         "contracts\\test_contracts\\MockERC20.sol",
         "node_modules/@openzeppelin/contracts\\access/Ownable.sol",

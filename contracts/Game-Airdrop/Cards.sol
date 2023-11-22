@@ -164,14 +164,14 @@ contract Cards is
     }*/
 
     modifier AirdropTokenCooldown() {
-        require(lastAirdropToken + 1 weeks - 1 minutes <= now);
-        lastAirdropToken = now;
+        require(lastAirdropToken + 1 weeks - 1 minutes <= block.timestamp);
+        lastAirdropToken = block.timestamp;
         _;
     }
 
     modifier AirdropMaticCooldown() {
-        require(lastAirdropMatic + 1 weeks - 1 minutes <= now);
-        lastAirdropMatic = now;
+        require(lastAirdropMatic + 1 weeks - 1 minutes <= block.timestamp);
+        lastAirdropMatic = block.timestamp;
         _;
     }
 
