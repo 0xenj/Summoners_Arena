@@ -3,9 +3,8 @@ pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/proxy/utils/Initializable.sol";
 
-abstract contract MyToken is IERC20, Ownable, Initializable {
+contract MyToken is IERC20, Ownable {
     address contractOwner;
     string private _name;
     string private _symbol;
@@ -14,16 +13,16 @@ abstract contract MyToken is IERC20, Ownable, Initializable {
     mapping(address => mapping(address => uint256)) private _allowances;
     uint256 private _totalSupply;
 
-    function initialize(
+    constructor(
         string memory name_,
         string memory symbol_,
-        uint8 decimals_
-    ) public initializer {
+        uint8 decimals_,
+        address initialOwner
+    ) public Ownable(initialOwner) {
         _name = name_;
         _symbol = symbol_;
         _decimals = decimals_;
         _mint(address(this), 100000000 * (10 ** decimals_));
-        transferOwnership(msg.sender);
     }
 
     function _mint(address account, uint256 amount) public onlyOwner {

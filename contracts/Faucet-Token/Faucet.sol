@@ -1,25 +1,28 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "./MyToken.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-abstract contract Faucet is Ownable, MyToken {
-    IERC20 public _token;
+contract Faucet is Ownable {
+    address public _token;
+    uint256 private constant _dripInterval = 1 minutes;
     uint256 private _amount;
     mapping(address => uint256) private _lastDripTime;
 
-    uint256 private constant _dripInterval = 60 minutes;
+    event UseFaucet(address indexed Receiver, uint256 indexed Amount);
 
-    constructor(IERC20 token, uint256 amount) {
+    constructor(address token, uint256 amount) {
         _token = token;
-        _amount = amount * (10 ** _decimals);
-        Ownable.transferOwnership(msg.sender);
+        _amount = amount * (10 ** 18);
     }
 
-    modifier canDrip(address recipient) {
+    constructor(address _tokenContract) {
+        tokenContract = _tokenContract; // set token contract
+    }
+
+    modifier canDrip() {
         require(
-            getLastDripTime(recipient) + _dripInterval <= block.timestamp,
+            getLastDripTime(msg.sender) + _dripInterval <= block.timestamp,
             "Recipient has to wait for 5 minutes"
         );
         _;
@@ -36,22 +39,28 @@ abstract contract Faucet is Ownable, MyToken {
     }
 
     function setAmount(uint256 amount) public onlyOwner {
-        _amount = amount * (10 ** _decimals);
+        _amount = amount * (10 ** 18);
     }
 
-    function drip(
-        address recipient
-    ) public tokenSet amountSet canDrip(recipient) {
-        _token.transfer(recipient, _amount);
-        _lastDripTime[recipient] = block.timestamp;
+    function drip() external tokenSet amountSet canDrip {
+        IERC20 token = IERC20(_token);
+        require(
+            token.balanceOf(address(this)) >= amountAllowed,
+            "Faucet Empty!"
+        );
+
+        token.transfer(msg.sender, amountAllowed);
+        _lastDripTime[msg.sender] = block.timestamp;
+
+        emit UseFaucet(msg.sender, amountAllowed);
     }
 
-    function getLastDripTime(address recipient) public view returns (uint256) {
-        return _lastDripTime[recipient];
+    function getLastDripTime() public view returns (uint256) {
+        return _lastDripTime[msg.sender];
     }
 
-    function dripCheck(address recipient) public view returns (bool) {
-        if (getLastDripTime(recipient) + _dripInterval <= block.timestamp) {
+    function dripCheck() public view returns (bool) {
+        if (getLastDripTime(msg.sender) + _dripInterval <= block.timestamp) {
             return true;
         } else {
             return false;

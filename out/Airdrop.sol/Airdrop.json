@@ -213,7 +213,7 @@
         195
       ],
       "IERC20": [
-        3950
+        4059
       ]
     },
     "nodeType": "SourceUnit",
@@ -240,7 +240,7 @@
         "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "nameLocation": "-1:-1:-1",
         "scope": 196,
-        "sourceUnit": 3951,
+        "sourceUnit": 4060,
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -835,7 +835,7 @@
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IERC20_$3950",
+                        "typeIdentifier": "t_contract$_IERC20_$4059",
                         "typeString": "contract IERC20"
                       },
                       "typeName": {
@@ -848,13 +848,13 @@
                             "988:6:0"
                           ],
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 3950,
+                          "referencedDeclaration": 4059,
                           "src": "988:6:0"
                         },
-                        "referencedDeclaration": 3950,
+                        "referencedDeclaration": 4059,
                         "src": "988:6:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IERC20_$3950",
+                          "typeIdentifier": "t_contract$_IERC20_$4059",
                           "typeString": "contract IERC20"
                         }
                       },
@@ -888,10 +888,10 @@
                       "name": "IERC20",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3950,
+                      "referencedDeclaration": 4059,
                       "src": "1003:6:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_contract$_IERC20_$3950_$",
+                        "typeIdentifier": "t_type$_t_contract$_IERC20_$4059_$",
                         "typeString": "type(contract IERC20)"
                       }
                     },
@@ -907,7 +907,7 @@
                     "src": "1003:14:0",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IERC20_$3950",
+                      "typeIdentifier": "t_contract$_IERC20_$4059",
                       "typeString": "contract IERC20"
                     }
                   },
@@ -1119,7 +1119,7 @@
                               "referencedDeclaration": 62,
                               "src": "1095:5:0",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_IERC20_$3950",
+                                "typeIdentifier": "t_contract$_IERC20_$4059",
                                 "typeString": "contract IERC20"
                               }
                             },
@@ -1131,7 +1131,7 @@
                             "memberLocation": "1101:9:0",
                             "memberName": "allowance",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 3927,
+                            "referencedDeclaration": 4036,
                             "src": "1095:15:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_external_view$_t_address_$_t_address_$returns$_t_uint256_$",
@@ -1370,7 +1370,7 @@
                               "referencedDeclaration": 62,
                               "src": "1273:5:0",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_IERC20_$3950",
+                                "typeIdentifier": "t_contract$_IERC20_$4059",
                                 "typeString": "contract IERC20"
                               }
                             },
@@ -1382,7 +1382,7 @@
                             "memberLocation": "1279:12:0",
                             "memberName": "transferFrom",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 3949,
+                            "referencedDeclaration": 4058,
                             "src": "1273:18:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",

@@ -24,7 +24,7 @@ const config: HardhatUserConfig = {
   solidity: {
     compilers: [
       {
-        version: '0.8.19',
+        version: '0.8.20',
         settings: {
           optimizer: {
             enabled: true,
@@ -36,18 +36,18 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {},
-    mainnet: {
-      url: RPC_MAINNET,
-      chainId: 1,
-      gas: 15000000,
-      gasPrice: 2000000000,
-      accounts: [`${PRIVATE_KEY_MAINNET}`]
-    },
-    sepolia: {
-      url: RPC_SEPOLIA,
-      chainId: 11155111,
-      accounts: [`${PRIVATE_KEY_SEPOLIA}`]
-    },
+    // mainnet: {
+    //   url: RPC_MAINNET,
+    //   chainId: 1,
+    //   gas: 15000000,
+    //   gasPrice: 2000000000,
+    //   accounts: [`${PRIVATE_KEY_MAINNET}`]
+    // },
+    // sepolia: {
+    //   url: RPC_SEPOLIA,
+    //   chainId: 11155111,
+    //   accounts: [`${PRIVATE_KEY_SEPOLIA}`]
+    // },
     mumbai: {
       url: RPC_MUMBAI,
       chainId: 5,
