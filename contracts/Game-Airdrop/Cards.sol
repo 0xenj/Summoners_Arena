@@ -20,6 +20,8 @@ contract Cards is
     uint256 public packPriceToken = 1000 * (10 ** 18);
     uint256 public constant explorationCooldown = 4 hours;
     uint256 public _weeks = 1;
+    uint256 public lastAirdropToken;
+    uint256 public lastAirdropMatic;
     string public constant NAME = "Summoners Arena";
     string public constant VERSION = "0.0.1";
     address[] private playerAddresses;
@@ -160,6 +162,18 @@ contract Cards is
 
         emit RandomnessFulfilled(requestId, randomWords);
     }*/
+
+    modifier AirdropTokenCooldown() {
+        require(lastAirdropToken + 1 weeks - 1 minutes <= now);
+        lastAirdropToken = now;
+        _;
+    }
+
+    modifier AirdropMaticCooldown() {
+        require(lastAirdropMatic + 1 weeks - 1 minutes <= now);
+        lastAirdropMatic = now;
+        _;
+    }
 
     function name() public pure returns (string memory) {
         return NAME;
@@ -340,7 +354,7 @@ contract Cards is
         address airdropTokenAddress,
         address[] calldata _addresses,
         uint256[] calldata _amounts
-    ) external onlyOwner returns (bool) {
+    ) external onlyOwner AirdropTokenCooldown returns (bool) {
         ++_weeks;
         return _airdropToken(airdropTokenAddress, _addresses, _amounts);
     }
@@ -348,7 +362,7 @@ contract Cards is
     function airdropMATIC(
         address payable[] calldata _addresses,
         uint256[] calldata _amounts
-    ) external payable onlyOwner returns (bool) {
+    ) external payable onlyOwner AirdropMaticCooldown returns (bool) {
         return _airdropMATIC(_addresses, _amounts);
     }
 
