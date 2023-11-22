@@ -17,8 +17,9 @@ contract Cards is
     Airdrop /*VRFConsumerBaseV2*/
 {
     uint256 public packPriceMatic = 5 ether;
-    uint256 public packPriceToken = 1000;
+    uint256 public packPriceToken = 1000 * (10 ** 18);
     uint256 public constant explorationCooldown = 4 hours;
+    uint256 public _weeks = 1;
     string public constant NAME = "Summoners Arena";
     string public constant VERSION = "0.0.1";
     address[] private playerAddresses;
@@ -340,6 +341,7 @@ contract Cards is
         address[] calldata _addresses,
         uint256[] calldata _amounts
     ) external onlyOwner returns (bool) {
+        ++_weeks;
         return _airdropToken(airdropTokenAddress, _addresses, _amounts);
     }
 
@@ -416,9 +418,15 @@ contract Cards is
         return address(_token);
     }
 
-    function changeToken(
-        IERC20 contractAddress
-    ) external onlyOwner() () {
+    function changeToken(IERC20 contractAddress) external onlyOwner {
         _token = contractAddress;
+    }
+
+    function changePackPriceToken(uint256 _price) external onlyOwner {
+        packPriceToken = _price;
+    }
+
+    function changePackPriceMatic(uint256 _price) external onlyOwner {
+        packPriceMatic = _price;
     }
 }
