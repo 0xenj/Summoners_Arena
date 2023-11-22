@@ -416,10 +416,9 @@ contract Cards is
         return address(_token);
     }
 
-    function _changeToken(
+    function changeToken(
         IERC20 contractAddress
-    ) internal returns (bool success) {
+    ) external onlyOwner() () {
         _token = contractAddress;
-        return true;
     }
 }
