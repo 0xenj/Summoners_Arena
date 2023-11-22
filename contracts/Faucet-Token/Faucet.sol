@@ -2,8 +2,9 @@
 pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract Faucet is Ownable {
+contract Faucet is Ownable, IERC20 {
     address public _token;
     uint256 private constant _dripInterval = 1 minutes;
     uint256 private _amount;
@@ -11,18 +12,18 @@ contract Faucet is Ownable {
 
     event UseFaucet(address indexed Receiver, uint256 indexed Amount);
 
-    constructor(address token, uint256 amount) {
+    constructor(
+        address token,
+        uint256 amount,
+        address initialOwner
+    ) Ownable(initialOwner) {
         _token = token;
         _amount = amount * (10 ** 18);
     }
 
-    constructor(address _tokenContract) {
-        tokenContract = _tokenContract; // set token contract
-    }
-
     modifier canDrip() {
         require(
-            getLastDripTime(msg.sender) + _dripInterval <= block.timestamp,
+            getLastDripTime() + _dripInterval <= block.timestamp,
             "Recipient has to wait for 5 minutes"
         );
         _;
@@ -44,15 +45,12 @@ contract Faucet is Ownable {
 
     function drip() external tokenSet amountSet canDrip {
         IERC20 token = IERC20(_token);
-        require(
-            token.balanceOf(address(this)) >= amountAllowed,
-            "Faucet Empty!"
-        );
+        require(token.balanceOf(address(this)) >= _amount, "Faucet Empty!");
 
-        token.transfer(msg.sender, amountAllowed);
+        token.transfer(msg.sender, _amount);
         _lastDripTime[msg.sender] = block.timestamp;
 
-        emit UseFaucet(msg.sender, amountAllowed);
+        emit UseFaucet(msg.sender, _amount);
     }
 
     function getLastDripTime() public view returns (uint256) {
@@ -60,7 +58,7 @@ contract Faucet is Ownable {
     }
 
     function dripCheck() public view returns (bool) {
-        if (getLastDripTime(msg.sender) + _dripInterval <= block.timestamp) {
+        if (getLastDripTime() + _dripInterval <= block.timestamp) {
             return true;
         } else {
             return false;

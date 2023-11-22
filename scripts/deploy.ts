@@ -2,16 +2,14 @@ import { ethers } from "hardhat";
 
 async function main(): Promise<void> {
     const MyTokenFactory = await ethers.getContractFactory("MyToken");
-    const myToken = await MyTokenFactory.deploy();
-    await myToken.deployed();
-    console.log(`MyToken deployed to: ${myToken.address}`);
+    const myToken = await MyTokenFactory.deploy("Summoners", "SUMM", 18, "0xF6547bd336230Ff9A371161b309Ea11b205ae2dC");
 
-    const initializeTx = await myToken.initialize("Summoners", "SUMM", 18);
-    await initializeTx.wait();
-    console.log("MyToken initialized");
+    await myToken.deployed();
+
+    console.log(`MyToken deployed to: ${myToken.address}`);
 }
 
 main().catch((error: Error) => {
-    console.error(error);
-    process.exit(1);
+  console.error(error);
+  process.exit(1);
 });
