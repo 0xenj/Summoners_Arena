@@ -1,6 +1,6 @@
 export const myTokenContractAddress="0x8c89b567CB651ED38FE1d57e3eb6B475aCef36C8";
 export const faucetContractAddress="0x4d660439258c6a78cF5E2ECb10809821DEFe45c6";
-export const TokenAbi=[{
+export const tokenAbi=[{
     "_format": "hh-sol-artifact-1",
     "contractName": "MyToken",
     "sourceName": "contracts/Faucet-Token/MyToken.sol",
