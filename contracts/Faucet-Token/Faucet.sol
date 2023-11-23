@@ -26,7 +26,7 @@ contract Faucet {
             _token.transfer(msg.sender, _amount),
             "requestTokens(): Failed to Transfer"
         );
-        userNextBuyTime[msg.sender] = block.timestamp + buyTimeLimit;
+        userNextBuyTime[msg.sender] = block.timestamp + _requestInterval;
 
         emit UseFaucet(msg.sender, _amount);
     }

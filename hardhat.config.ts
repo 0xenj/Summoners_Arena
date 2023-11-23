@@ -50,7 +50,7 @@ const config: HardhatUserConfig = {
     // },
     mumbai: {
       url: RPC_MUMBAI,
-      chainId: 5,
+      chainId: 80001,
       gas: 15000000,
       gasPrice: 5000000000,
       accounts: [`${PRIVATE_KEY_MUMBAI}`]
