@@ -19,7 +19,7 @@ const POSSIBLE_ERRORS = [
 
 const createContract = (address, contractName) => {
   console.log(address);
-  const provider = new providers.JsonRpcProvider();
+  const provider = new ethers.BrowserProvider(window.ethereum);
   const signer = provider.getSigner(address);
   let contract;
   if (contractName == "coin")
@@ -116,7 +116,6 @@ const AppProvider = ({ children }) => {
   };
   const approve = async (address, amount) => {
     callContract(async () => {
-      //0xfb..26 approved to take money on my behalf
       let tx = await tokenContract.approve(address, parseEther(amount));
       await tx.wait();
       setMessage({
