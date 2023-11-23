@@ -57,10 +57,15 @@ const config: HardhatUserConfig = {
     }
   },
   etherscan: {
-    apiKey: POLYGONSCAN_API_KEY
+    apiKey: {
+      polygonMumbai: POLYGONSCAN_API_KEY
+    }
   },
   mocha: {
     timeout: 200000
+  },
+  sourcify: {
+    enabled: true
   }
 };
 
