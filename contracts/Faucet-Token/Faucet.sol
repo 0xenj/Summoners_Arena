@@ -30,4 +30,8 @@ contract Faucet {
 
         emit UseFaucet(msg.sender, _amount);
     }
+
+    function getNextBuyTime() public view returns (uint256) {
+        return userNextBuyTime[msg.sender];
+    }
 }

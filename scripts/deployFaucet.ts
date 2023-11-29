@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 
 async function main(): Promise<void> {
   const Faucet = await ethers.getContractFactory("Faucet");
-  const faucet = await Faucet.deploy("0x8c89b567CB651ED38FE1d57e3eb6B475aCef36C8", 100);
+  const faucet = await Faucet.deploy("0x9c7843Fec55F6Cd47daE08Aa46f87837df6c442c", 100);
 
   await faucet.waitForDeployment();
 
