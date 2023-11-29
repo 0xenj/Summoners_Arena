@@ -7,7 +7,7 @@ contract Faucet {
     MyToken private immutable _token;
     uint256 private immutable _amount;
     uint256 private constant _requestInterval = 1 minutes;
-    mapping(address => uint256) userNextBuyTime;
+    mapping(address => uint256) public userNextBuyTime;
 
     event UseFaucet(address indexed Receiver, uint256 indexed Amount);
 
