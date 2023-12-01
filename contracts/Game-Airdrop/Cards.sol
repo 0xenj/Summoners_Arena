@@ -16,9 +16,9 @@ contract Cards is
     ERC1155Burnable,
     Airdrop /*VRFConsumerBaseV2*/
 {
-    uint256 public packPriceMatic = 5 ether;
-    uint256 public packPriceToken = 1000 * (10 ** 18);
-    uint256 public constant explorationCooldown = 4 hours;
+    uint256 public packPriceMatic = 5 wei;
+    uint256 public packPriceToken = 10 * (10 ** 18);
+    uint256 public constant explorationCooldown = 1 minutes;
     uint256 public _weeks = 1;
     uint256 public lastAirdropToken;
     uint256 public lastAirdropMatic;
