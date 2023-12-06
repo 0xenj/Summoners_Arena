@@ -49,19 +49,20 @@ contract Cards is
 
     mapping(uint256 => Card) public cards;
     mapping(address => Team) public teams;
+    mapping(address => uint256) public packNb;
     mapping(address => uint256) public lastOpenedFreePack;
     mapping(address => uint256) public lastExplorationTime;
 
+    event PackBought(address indexed user);
     event PackOpened(
         address indexed user,
-        uint256[] cardIds,
-        uint256[] amounts
+        uint256[] indexed cardIds
     );
-    event Exploration(address indexed user, uint256 tokenId, bool success);
+    event Exploration(address indexed user, uint256 indexed tokenId, bool success);
     event TeamCreated(
         address indexed user,
-        uint256 totalPower,
-        uint256[5] cardIds
+        uint256 indexed totalPower,
+        uint256[5] indexed cardIds
     );
 
     /*event RandomnessRequested(uint256 requestId);
@@ -263,7 +264,7 @@ contract Cards is
     }
 
     function openBuyPackToken(uint256 _amount) external {
-        require(_amount >= packPriceToken, "Insufficient SUMM sent");
+        require(_amount == packPriceToken, "Insufficient SUMM sent");
 
         _token.transferFrom(msg.sender, address(this), _amount);
 
@@ -304,7 +305,7 @@ contract Cards is
         }
 
         _mintBatch(user, ids, amounts, "");
-        emit PackOpened(user, ids, amounts);
+        emit PackOpened(user, ids);
     }
 
     function _openBuyPack(address user) internal {
@@ -321,13 +322,13 @@ contract Cards is
             uint256 categoryRandom = randomness % 100;
             uint256 idRandom = (randomness / 100) % 10;
 
-            if (categoryRandom < 60) {
+            if (categoryRandom < 40) {
                 ids[i] = idRandom;
-            } else if (categoryRandom < 84) {
+            } else if (categoryRandom < 70) {
                 ids[i] = idRandom + 10;
-            } else if (categoryRandom < 94) {
+            } else if (categoryRandom < 88) {
                 ids[i] = idRandom + 20;
-            } else if (categoryRandom < 99) {
+            } else if (categoryRandom < 98) {
                 ids[i] = idRandom + 30;
             } else {
                 ids[i] = idRandom + 40;
@@ -337,7 +338,7 @@ contract Cards is
         }
 
         _mintBatch(user, ids, amounts, "");
-        emit PackOpened(user, ids, amounts);
+        emit PackOpened(user, ids);
     }
 
     function explore(uint256 tokenId) external {
