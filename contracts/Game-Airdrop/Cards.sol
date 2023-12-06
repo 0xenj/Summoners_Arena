@@ -248,7 +248,7 @@ contract Cards is
             "Must wait 1 day to open a free pack"
         );
 
-        _openPack(msg.sender);
+        _openFreePack(msg.sender);
         lastOpenedFreePack[msg.sender] = block.timestamp;
     }
 
@@ -259,7 +259,7 @@ contract Cards is
             payable(msg.sender).transfer(msg.value - packPriceMatic);
         }
 
-        _openPack(msg.sender);
+        _openBuyPack(msg.sender);
     }
 
     function openBuyPackToken(uint256 _amount) external {
@@ -271,10 +271,43 @@ contract Cards is
             _token.transfer(msg.sender, _amount - packPriceToken);
         }
 
-        _openPack(msg.sender);
+        _openBuyPack(msg.sender);
     }
 
-    function _openPack(address user) internal {
+    function _openFreePack(address user) internal {
+        uint256[] memory ids = new uint256[](5);
+        uint256[] memory amounts = new uint256[](5);
+
+        for (uint256 i = 0; i < 5; i++) {
+            /*uint256 randomness = requestRandomNumber();*/
+            uint256 randomness = uint256(
+                keccak256(
+                    abi.encodePacked(blockhash(block.number - 1), user, i)
+                )
+            );
+            uint256 categoryRandom = randomness % 100;
+            uint256 idRandom = (randomness / 100) % 10;
+
+            if (categoryRandom < 60) {
+                ids[i] = idRandom;
+            } else if (categoryRandom < 84) {
+                ids[i] = idRandom + 10;
+            } else if (categoryRandom < 94) {
+                ids[i] = idRandom + 20;
+            } else if (categoryRandom < 99) {
+                ids[i] = idRandom + 30;
+            } else {
+                ids[i] = idRandom + 40;
+            }
+
+            amounts[i] = 1;
+        }
+
+        _mintBatch(user, ids, amounts, "");
+        emit PackOpened(user, ids, amounts);
+    }
+
+    function _openBuyPack(address user) internal {
         uint256[] memory ids = new uint256[](5);
         uint256[] memory amounts = new uint256[](5);
 
