@@ -253,17 +253,28 @@ contract Cards is
         lastOpenedFreePack[msg.sender] = block.timestamp;
     }
 
-    function openBuyPackMatic() external payable {
-        require(msg.value >= packPriceMatic, "Insufficient ETH sent");
+    function buyPackMatic() external payable {
+        require(msg.value >= packPriceMatic, "Insufficient MATIC sent");
 
         if (msg.value > packPriceMatic) {
             payable(msg.sender).transfer(msg.value - packPriceMatic);
         }
 
-        _openBuyPack(msg.sender);
+        packNb[msg.sender]++;
     }
 
-    function openBuyPackToken(uint256 _amount) external {
+    function buy10PackMatic() external payable {
+        uint256 _10PackPriceMatic = packPriceMatic * 9;
+        require(msg.value >= _10PackPriceMatic, "Insufficient MATIC sent");
+
+        if (msg.value > _10PackPriceMatic) {
+            payable(msg.sender).transfer(msg.value - _10PackPriceMatic);
+        }
+
+        packNb[msg.sender] += 10;
+    }
+
+    function buyPackToken(uint256 _amount) external {
         require(_amount == packPriceToken, "Insufficient SUMM sent");
 
         _token.transferFrom(msg.sender, address(this), _amount);
@@ -272,6 +283,20 @@ contract Cards is
             _token.transfer(msg.sender, _amount - packPriceToken);
         }
 
+        packNb[msg.sender]++;
+    }
+
+    function buy10PackToken(uint256 _amount) external {
+        uint256 _10PackPriceToken = packPriceToken * 9;
+        require(_amount == _10PackPriceToken, "Insufficient SUMM sent");
+
+        _token.transferFrom(msg.sender, address(this), _amount);
+
+        packNb[msg.sender] += 10;
+    }
+
+    function openBuyPack() external {
+        require (packNb[msg.sender] >= 1, "insufficient packs' number in inventory");
         _openBuyPack(msg.sender);
     }
 
