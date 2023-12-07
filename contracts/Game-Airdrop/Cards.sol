@@ -401,7 +401,7 @@ contract Cards is
         ) % 100;
 
         if (randomness < successProbability) {
-            _openPack(msg.sender);
+            _openFreePack(msg.sender);
             emit Exploration(msg.sender, tokenId, true);
         } else {
             _burn(msg.sender, tokenId, 1);

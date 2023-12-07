@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 
 async function main(): Promise<void> {
     const MyCardsFactory = await ethers.getContractFactory("Cards");
-    const Cards = await MyCardsFactory.deploy("0xF6547bd336230Ff9A371161b309Ea11b205ae2dC");
+    const Cards = await MyCardsFactory.deploy("0x2BFA005d8E646478CD64FE71AD8E7f748a1c2641");
 
     await Cards.waitForDeployment();
 
