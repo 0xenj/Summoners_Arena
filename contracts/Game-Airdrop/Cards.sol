@@ -50,6 +50,7 @@ contract Cards is
     mapping(uint256 => Card) public cards;
     mapping(address => Team) public teams;
     mapping(address => uint256) public packNb;
+    mapping(address => uint256[5]) public lastOpening;
     mapping(address => uint256) public lastOpenedFreePack;
     mapping(address => uint256) public lastExplorationTime;
 
@@ -297,6 +298,7 @@ contract Cards is
 
     function openBuyPack() external {
         require (packNb[msg.sender] >= 1, "insufficient packs' number in inventory");
+        packNb[msg.sender]--;
         _openBuyPack(msg.sender);
     }
 
@@ -327,6 +329,7 @@ contract Cards is
             }
 
             amounts[i] = 1;
+            lastOpening[user][i] = ids[i];
         }
 
         _mintBatch(user, ids, amounts, "");
@@ -360,6 +363,7 @@ contract Cards is
             }
 
             amounts[i] = 1;
+            lastOpening[user][i] = ids[i];
         }
 
         _mintBatch(user, ids, amounts, "");
