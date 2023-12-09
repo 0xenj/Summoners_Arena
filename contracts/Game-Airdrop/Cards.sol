@@ -53,6 +53,7 @@ contract Cards is
     mapping(address => uint256[5]) public lastOpening;
     mapping(address => uint256) public lastOpenedFreePack;
     mapping(address => uint256) public lastExplorationTime;
+    mapping(address => bool) public exploration;
 
     event PackBought(address indexed user);
     event PackOpened(
@@ -406,9 +407,11 @@ contract Cards is
 
         if (randomness < successProbability) {
             _openFreePack(msg.sender);
+            exploration[msg.sender] = true;
             emit Exploration(msg.sender, tokenId, true);
         } else {
             _burn(msg.sender, tokenId, 1);
+            exploration[msg.sender] = false;
             emit Exploration(msg.sender, tokenId, false);
         }
     }
